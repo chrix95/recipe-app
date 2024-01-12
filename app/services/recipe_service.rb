@@ -28,9 +28,13 @@ class RecipeService
 
         if response[:status] == 200
             meals = response[:data]&.fetch('meals') || []
-            recipe = meals.first&.to_h || {}
+            recipe = meals.first
 
-            { status: 200, data: recipe }
+            if recipe
+                { status: 200, data: recipe }
+            else
+                { status: 404, data: "Recipe #{id} not found"}
+            end
         else
             { status: 500, message: 'An error occurred getting recipe'}
         end

@@ -1,17 +1,16 @@
-require 'httparty'
+require 'net/http'
 
 class ThemealdbService
-    include HTTParty
     BASE_URL = 'https://www.themealdb.com/api/json/v1/1'.freeze
   
     def self.fetch_categories
         begin
             # Implement logic to fetch categories from Themealdb API
             # response = HTTParty.get("#{BASE_URL}/categories.php")
-            # JSON.parse(response.body)
-            response = HTTParty.get("#{BASE_URL}/categories.php")
+            # JSON.parse(response)
+            response = Net::HTTP.get(URI("#{BASE_URL}/categories.php"))
 
-            parsedResponse = JSON.parse(response.body)
+            parsedResponse = JSON.parse(response)
             data = { status: 200, data: parsedResponse }
             # Return the data
             data
@@ -26,10 +25,10 @@ class ThemealdbService
         begin
             # Implement logic to filter categories from the Themealdb API
             # response = HTTParty.get("#{BASE_URL}/filter.php?c=#{category}")
-            # JSON.parse(response.body)
-            response = HTTParty.get("#{BASE_URL}/filter.php?c=#{category}")
+            # JSON.parse(response)
+            response = Net::HTTP.get(URI("#{BASE_URL}/filter.php?c=#{category}"))
 
-            parsedResponse = JSON.parse(response.body)
+            parsedResponse = JSON.parse(response)
             data = { status: 200, data: parsedResponse }
             # Return the data
             data
@@ -44,10 +43,10 @@ class ThemealdbService
         begin
             # Implement logic to lookup a single recipe from the Themealdb API
             # response = HTTParty.get("#{BASE_URL}/lookup.php?i=#{id}")
-            # JSON.parse(response.body)
-            response = HTTParty.get("#{BASE_URL}/lookup.php?i=#{id}")
+            # JSON.parse(response)
+            response = Net::HTTP.get(URI("#{BASE_URL}/lookup.php?i=#{id}"))
 
-            parsedResponse = JSON.parse(response.body)
+            parsedResponse = JSON.parse(response)
             data = { status: 200, data: parsedResponse }
             # Return the data
             data
