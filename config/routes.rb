@@ -9,6 +9,6 @@ Rails.application.routes.draw do
   # root "posts#index"
   get '/', to: 'recipes#index'
   get '/categories', to: 'recipes#categories'
-  get '/filter/:category', to: 'recipes#filter'
-  get '/lookup/:id', to: 'recipes#lookup'
+  get '/recipes/:category', to: 'recipes#filter'
+  get '/recipe/:id', to: 'recipes#lookup'
 end

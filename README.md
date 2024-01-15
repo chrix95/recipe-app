@@ -40,12 +40,12 @@ The application will be accessible at http://localhost:3000.
 - View all recipe categories at [http://localhost:3000/categories](http://localhost:3000/categories).
 
 **Filter Recipes by Category:**
-- To filter recipes by a specific category, replace `:category` in the URL at [http://localhost:3000/filter/:category](http://localhost:3000/filter/:category) with the desired category name.<br>
-Example: [http://localhost:3000/filter/beef](http://localhost:3000/filter/beef).
+- To filter recipes by a specific category, replace `:category` in the URL at [http://localhost:3000/recipes/:category](http://localhost:3000/recipes/:category) with the desired category name.<br>
+Example: [http://localhost:3000/recipes/beef](http://localhost:3000/recipes/beef).
 
 **Lookup Recipe by ID:**
-- To look up a recipe by ID, replace `:id` in the URL at [http://localhost:3000/lookup/:id](http://localhost:3000/lookup/:id) with the desired recipe ID <br>
-Example: [http://localhost:3000/lookup/53054](http://localhost:3000/lookup/53054).
+- To look up a recipe by ID, replace `:id` in the URL at [http://localhost:3000/recipe/:id](http://localhost:3000/recipe/:id) with the desired recipe ID <br>
+Example: [http://localhost:3000/recipe/53054](http://localhost:3000/recipe/53054).
 
 ## Contributing
 
