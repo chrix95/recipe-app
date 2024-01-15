@@ -8,17 +8,17 @@ class RecipesController < ApplicationController
 
     def categories
         categories = RecipeService.fetch_categories
-        render json: categories
+        render json: JsonTransformService.transform_keys_to_snake_case(categories)
     end
 
     def filter
         recipes = RecipeService.filter_category(@category)
-        render json: recipes
+        render json: JsonTransformService.transform_keys_to_snake_case(recipes)
     end
 
     def lookup
         recipe = RecipeService.lookup_recipe(@id)
-        render json: recipe
+        render json: JsonTransformService.transform_keys_to_snake_case(recipe)
     end
 
     private

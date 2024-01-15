@@ -5,21 +5,22 @@ class RecipeService
         if response[:status] == 200
             categories = response[:data]&.fetch('categories', [])
 
-            { status: 200, data: categories }
+            ResponseService.success_response(categories)
         else
-            { status: 500, message: 'An error occurred while fetching categories' }
+            ResponseService.failure_response(500, "An error occurred while fetching categories")
         end
     end
 
     def self.filter_category(category)
         response = ThemealdbService.filter_category(category)
+        puts response
 
         if response[:status] == 200
             filter = response[:data]&.fetch('meals') || []
 
-            { status: 200, data: filter }
+            ResponseService.success_response(filter)
         else
-            { status: 500, message: 'An error occurred while filtering categories' }
+            ResponseService.failure_response(500, "An error occurred while filtering categories")
         end
     end
 
@@ -31,12 +32,12 @@ class RecipeService
             recipe = meals.first
 
             if recipe
-                { status: 200, data: recipe }
+                ResponseService.success_response(recipe)
             else
-                { status: 404, data: "Recipe #{id} not found"}
+                ResponseService.failure_response(404, "Recipe #{id} not found")
             end
         else
-            { status: 500, message: 'An error occurred while getting recipe' }
+            ResponseService.failure_response(500, "An error occurred while getting recipe")
         end
     end
 end
