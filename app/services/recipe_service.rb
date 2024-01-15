@@ -7,10 +7,10 @@ class RecipeService
 
             { status: 200, data: categories }
         else
-            { status: 500, message: 'An error occurred fetching categories'}
+            { status: 500, message: 'An error occurred while fetching categories' }
         end
     end
-  
+
     def self.filter_category(category)
         response = ThemealdbService.filter_category(category)
 
@@ -19,10 +19,10 @@ class RecipeService
 
             { status: 200, data: filter }
         else
-            { status: 500, message: 'An error occurred filtering categories'}
+            { status: 500, message: 'An error occurred while filtering categories' }
         end
     end
-  
+
     def self.lookup_recipe(id)
         response = ThemealdbService.lookup_recipe(id)
 
@@ -36,7 +36,7 @@ class RecipeService
                 { status: 404, data: "Recipe #{id} not found"}
             end
         else
-            { status: 500, message: 'An error occurred getting recipe'}
+            { status: 500, message: 'An error occurred while getting recipe' }
         end
     end
 end

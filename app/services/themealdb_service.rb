@@ -2,7 +2,7 @@ require 'net/http'
 
 class ThemealdbService
     BASE_URL = 'https://www.themealdb.com/api/json/v1/1'.freeze
-  
+
     def self.fetch_categories
         begin
             # Implement logic to fetch categories from Themealdb API
@@ -16,11 +16,12 @@ class ThemealdbService
             data
         rescue StandardError => e
             # Log the error message to a logger
+            Rails.logger.error("Error fetching data from API: #{e.message}")
             status_code = ActionDispatch::ExceptionWrapper.new(nil, e).status_code
             { status: status_code, message: "An error occurred: #{e.message}" }
         end
     end
-  
+
     def self.filter_category(category)
         begin
             # Implement logic to filter categories from the Themealdb API
@@ -34,11 +35,12 @@ class ThemealdbService
             data
         rescue StandardError => e
             # Log the error message to a logger
+            Rails.logger.error("Error fetching data from API: #{e.message}")
             status_code = ActionDispatch::ExceptionWrapper.new(nil, e).status_code
             { status: status_code, message: "An error occurred: #{e.message}" }
         end
     end
-  
+
     def self.lookup_recipe(id)
         begin
             # Implement logic to lookup a single recipe from the Themealdb API
@@ -52,6 +54,7 @@ class ThemealdbService
             data
         rescue StandardError => e
             # Log the error message to a logger
+            Rails.logger.error("Error fetching data from API: #{e.message}")
             status_code = ActionDispatch::ExceptionWrapper.new(nil, e).status_code
             { status: status_code, message: "An error occurred: #{e.message}" }
         end
