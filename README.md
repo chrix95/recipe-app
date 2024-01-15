@@ -7,7 +7,13 @@ A Ruby on Rails application for browsing various food recipes.
 Ensure you have the following installed on your machine:
 
 - Ruby (version 3.3.0)
+```
+ruby -v
+```
 - Rails (version 7.1.2)
+```
+rails -v
+```
 - No database was used, so no need to setup any
 
 ## Getting Started

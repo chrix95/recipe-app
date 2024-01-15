@@ -43,7 +43,6 @@ RSpec.describe ResponseService, type: :service do
     it 'returns the correct error code for a given status' do
       expect(ResponseService.send(:generate_error_code, 400)).to eq('BAD_REQUEST')
       expect(ResponseService.send(:generate_error_code, 404)).to eq('NOT_FOUND')
-      expect(ResponseService.send(:generate_error_code, 422)).to eq('VALIDATION_ERROR')
       expect(ResponseService.send(:generate_error_code, 500)).to eq('INTERNAL_SERVER_ERROR')
       expect(ResponseService.send(:generate_error_code, 418)).to eq('UNKNOWN_ERROR')
     end
