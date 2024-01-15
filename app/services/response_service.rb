@@ -33,8 +33,8 @@ class ResponseService
         "BAD_REQUEST"
       when 404
         "NOT_FOUND"
-      when 422
-        "VALIDATION_ERROR"
+      when 500
+        "INTERNAL_SERVER_ERROR"
       else
         "UNKNOWN_ERROR"
     end

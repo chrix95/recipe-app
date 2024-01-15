@@ -28,6 +28,10 @@ bundle install
 ```
 rails server
 ```
+5. **To run the test suite:**
+```
+bundle exec rspec
+```
 
 The application will be accessible at http://localhost:3000.
 
