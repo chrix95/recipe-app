@@ -13,7 +13,6 @@ class RecipeService
 
     def self.filter_category(category)
         response = ThemealdbService.filter_category(category)
-        puts response
 
         if response[:status] == 200
             filter = response[:data]&.fetch('meals') || []
